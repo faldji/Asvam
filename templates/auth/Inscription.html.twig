@@ -1,0 +1,96 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer votre compte!{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+
+            {{ form_start(formView) }}
+            <div class="form-group">
+                {{ form_label(formView.Username) }}
+                {{ form_widget(formView.Username,{'attr':{'class':'form-control','placeholder':'Pseudo...'}}) }}
+                <div class="text-danger">
+                    {{ form_errors(formView.Username) }}
+                </div>
+            </div>
+            <div class="form-group">
+                {{ form_label(formView.Nom) }}
+                {{ form_widget(formView.Nom,{'attr':{'class':'form-control','placeholder':'Entrer votre Nom'}}) }}
+                <div class="text-danger">
+                    {{ form_errors(formView.Nom) }}
+                </div>
+            </div>
+            <div class="form-group">
+                {{ form_label(formView.Prenom) }}
+                {{ form_widget(formView.Prenom,{'attr':{'class':'form-control','placeholder':'Entrer votre Prénom'}}) }}
+                <div class="text-danger">
+                    {{ form_errors(formView.Prenom) }}
+                </div>
+            </div>
+            <div class="form-group">
+                {{ form_label(formView.Email) }}
+                {{ form_widget(formView.Email,{'attr':{'class':'form-control','placeholder':'Entrer votre email'}}) }}
+                <div class="text-danger">
+                    {{ form_errors(formView.Email) }}
+                </div>
+            </div>
+            <div class="form-group">
+                {{ form_label(formView.Password) }}
+                {{ form_widget(formView.Password,{'attr':{'class':'form-control','placeholder':'Entrer un mot de passe'}}) }}
+                <div class="text-danger">
+                    {{ form_errors(formView.Password) }}
+                </div>
+            </div>
+            <div class="form-group">
+                {{ form_label(formView.Re_password) }}
+                {{ form_widget(formView.Re_password,{'attr':{'class':'form-control','placeholder':'Confirmer le MDP'}}) }}
+                <div class="text-danger">
+                    {{ form_errors(formView.Re_password) }}
+                </div>
+            </div>
+            <div class="form-group">
+                {{ form_label(formView.Age) }}
+                <div class="form-row">
+                    <div class="col-md-3" >
+                        {{ form_widget(formView.Age.day,{'attr':{'class':'form-control'}}) }}
+                    </div>
+                    <div class="col-md-3" >
+                        {{ form_widget(formView.Age.month,{'attr':{'class':'form-control'}}) }}
+                    </div>
+                    <div class="col-md-3" >
+                        {{ form_widget(formView.Age.year,{'attr':{'class':'form-control'}}) }}
+                    </div>
+
+                </div>
+                <div class="text-danger">
+                    {{ form_errors(formView.Age) }}
+                </div>
+                </div>
+            <div class="form-group">
+                {{ form_label(formView.Tel) }}
+                {{ form_widget(formView.Tel,{'attr':{'class':'form-control','placeholder':'Tel...'}}) }}
+                <div class="text-danger">
+                    {{ form_errors(formView.Tel) }}
+                </div>
+            </div>
+            <div class="form-group">
+                {{ form_label(formView.Photo) }}
+                {{ form_widget(formView.Photo,{'attr':{'class':'form-control-file','placeholder':'Image de profile'}}) }}
+                <div class="text-danger">
+                    {{ form_errors(formView.Photo) }}
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-2 mx-auto">
+                    <input type="submit" class="btn btn-success" value="Valder"/>
+                </div>
+            </div>
+
+            {{ form_end(formView) }}
+        </div>
+    </div>
+</div>
+
+{% endblock %}
