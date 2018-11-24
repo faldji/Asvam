@@ -76,6 +76,13 @@
                 </div>
             </div>
             <div class="form-group">
+                {{ form_label(formView.Roles,'Type d\'utilisateur') }}
+                {{ form_widget(formView.Roles,{'attr':{'class':'form-control'}}) }}
+                <div class="text-danger">
+                    {{ form_errors(formView.Roles) }}
+                </div>
+            </div>
+            <div class="form-group">
                 {{ form_label(formView.Photo) }}
                 {{ form_widget(formView.Photo,{'attr':{'class':'form-control-file','placeholder':'Image de profile'}}) }}
                 <div class="text-danger">
@@ -84,7 +91,7 @@
             </div>
             <div class="form-group">
                 <div class="col-md-2 mx-auto">
-                    <input type="submit" class="btn btn-success" value="Valder"/>
+                    <input type="submit" class="btn btn-success" value="Valider"/>
                 </div>
             </div>
 

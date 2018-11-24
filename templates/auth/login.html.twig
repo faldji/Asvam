@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+    Login - Connexion
+{% endblock %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <div class=" col-md-2 mx-auto"><h1>ASVAM</h1></div>
+                {{ form_start(formLogin) }}
+                <div class="form-group">
+                    {% if error %}
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            {{ error.messageKey|trans(error.messageData, 'security') }}
+
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    {% endif %}
+                    {{ form_label(formLogin.Username,'Username / Email') }}
+                    {{ form_widget(formLogin.Username,{'attr':{'class':'form-control','placeholder':'Pseudo ou email'},'value':last_username}) }}
+                    <div class="text-danger">
+                        {{ form_errors(formLogin.Username) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form_label(formLogin.Password) }}
+                    {{ form_widget(formLogin.Password,{'attr':{'class':'form-control','placeholder':'Mot de passe'}}) }}
+                    <div class="text-danger">
+                        {{ form_errors(formLogin.Password) }}
+                    </div>
+
+                    {#
+                    Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+                    See https://symfony.com/doc/current/security/remember_me.html
+
+                    <div class="checkbox mb-3">
+                        <label>
+                            <input type="checkbox" name="_remember_me"> Remember me
+                        </label>
+                    </div>
+                #}
+                </div>
+                <div class="form-group">
+                    <div class="col-md-2 mx-auto">
+                        <input type="submit" class="btn btn-primary" value="Connexion"/>
+                    </div>
+                </div>
+
+                {{ form_end(formLogin) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
