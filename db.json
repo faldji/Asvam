@@ -1,22 +1,26 @@
-[
-  {
-    "id": 1,
-    "masque": "test"
-  },
-  {
-    "id": 2,
-    "masque": "Le pendu"
-  },
-  {
-    "id": 3,
-    "masque": "reactjs"
-  },
-  {
-    "id": 4,
-    "masque": "jeux"
-  },
-  {
-    "id": 5,
-    "masque": "je me forme en react"
-  }
-]
+{
+  "mots":
+  [
+    {
+      "id": 1,
+      "masque": "test"
+    },
+    {
+      "id": 2,
+      "masque": "Le pendu"
+    },
+    {
+      "id": 3,
+      "masque": "reactjs"
+    },
+    {
+      "id": 4,
+      "masque": "jeux"
+    },
+    {
+      "id": 5,
+      "masque": "je me forme en react"
+    }
+  ]
+
+}  
