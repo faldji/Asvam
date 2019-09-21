@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\User;
 use Doctrine\Common\Persistence\ObjectManager;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
@@ -24,7 +25,7 @@ class AuthController extends AbstractController
     {
 
         // or add an optional message - seen by developers
-        $this->denyAccessUnlessGranted('ROLE_ADMIN', null, 'User tried to access a page without having ROLE_ADMIN');
+        //$this->denyAccessUnlessGranted('ROLE_ADMIN', null, 'User tried to access a page without having ROLE_ADMIN');
 
         $user = new User();
         $form = $this->createForm(RegistrationType::class, $user);
@@ -106,8 +107,11 @@ class AuthController extends AbstractController
      * @Route("/profile",name="profile",)
      *
      */
-    public function profileAction()
+    public function profileAction(Request $request, ObjectManager $manager)
     {
+        $user =  $this->getUser();
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        return $this->render('auth/profile.html.twig',["user" => $user]);
     }
 
     /**

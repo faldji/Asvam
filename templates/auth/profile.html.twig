@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+    {{ user.getUsername }}
+{% endblock %}
+{% block body %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <h3>Profile {{ user.getUsername }}</h3>
+                <div class="text-center">
+                    <img src="
+                        {% if user.getPhoto() == null %}
+                            {{  asset('contents/img/users/DefaultUserPic.png') }}
+                        {% else %}
+                            {{ asset('contents/img/users/' ~ user.getPhoto()) }}
+                        {% endif %}" class="rounded img-thumbnail" width="200" height="200" alt="User">
+                    <div>
+                        <a href="{{ path("profile") }}" class="btn btn-primary">Edit</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
